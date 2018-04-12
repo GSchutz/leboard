@@ -23,6 +23,9 @@ leboard init
 
 ## if option 1)
 > Choose a name for Firebase project (leboard):
+> Create a Firebase project at https://console.firebase.google.com/
+> Get the gcloud credential at https://console.cloud.google.com/iam-admin/serviceaccounts/project
+> Access the page Database -> activate the Firestore database
 
 ## if option 2)
 > Choose a path to store your board (~/.leboard):
