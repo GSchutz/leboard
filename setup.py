@@ -19,4 +19,3 @@ setup(name='leboard',
           'console_scripts': ['leboard=leboard.cli:main']
       },
      )
-

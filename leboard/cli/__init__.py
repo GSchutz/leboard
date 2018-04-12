@@ -4,7 +4,6 @@ leboard
 Usage:
     leboard init
 """
-from inspect import getmembers, isclass
 
 from docopt import docopt
 from leboard import __version__
