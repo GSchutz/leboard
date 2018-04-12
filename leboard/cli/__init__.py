@@ -6,6 +6,7 @@ Usage:
 """
 
 from docopt import docopt
+
 from leboard import __version__
 
 
@@ -28,7 +29,7 @@ def init(p):
 
     handler = input("""Choose an option for Data Handler (1):
     1) Google Firebase (recommended)
-    2) Local file system (no shared options)
+    2) Local file system (not supported yet)
     """)
 
     if handler not in handlers:
@@ -44,19 +45,13 @@ def firebase():
     Set FirebaseHandler
     :return:
     """
-    try:
-        import firebase_admin
-        from firebase_admin import credentials
-        from firebase_admin import firestore
-    except:
-        print("We could not find the firebase-admin package, install with `pip install firebase-admin`")
-
-    cred = credentials.Certificate('firebase.json')
-    default_app = firebase_admin.initialize_app(cred, name="leboard")
-
-
-
-
+    print("""
+    Please, follow this steps:
+     1) Create a Firebase project at https://console.firebase.google.com/.
+     2) Access the page Firebase Database and activate the Firestore database.
+     3) Generate a key for the App Engine (gcloud credential) at https://console.cloud.google.com/iam-admin/serviceaccounts/project (for your created project).
+     4) Download the json file and save in 'firebase.json'.
+    """)
 
 
 def local():
