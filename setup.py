@@ -8,19 +8,13 @@ if isfile('leboard/VERSION'):
 else:
     VERSION = "0"
 
-with open(join(abspath(dirname(__file__)), 'README.md'), encoding='utf-8') as file:
-    try:
-        # pypi markdown support is a mess (this is only for deploy to pypi)
-        from m2r import convert
-
-        description = convert(file.read())
-    except:
-        description = file.read()
+with open(join(abspath(dirname(__file__)), 'README.rst'), encoding='utf-8') as file:
+    description = file.read()
 
 setup(name='leboard',
       version=VERSION,
+      description="Le Board, a simple leaderboard generator for ranking your algorithms experiments",
       long_description=description,
-      long_description_content_type='text/markdown',
       keywords=['leaderboard', 'ranking', 'models'],
       author='GSchutz',
       author_email='guilherme@gschutz.com',
