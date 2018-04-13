@@ -1,4 +1,4 @@
-# Le Board
+# Le Board (beta)
 
 Le Board, a simple leaderboard generator for ranking your
 algorithms experiments.
@@ -22,13 +22,13 @@ leboard init
 > 2) Local file system (no shared options)
 
 ## if option 1)
-> Choose a name for Firebase project (leboard):
-> Create a Firebase project at https://console.firebase.google.com/
-> Get the gcloud credential at https://console.cloud.google.com/iam-admin/serviceaccounts/project
-> Access the page Database -> activate the Firestore database
+> - ~~Choose a name for Firebase project (leboard)~~
+> - Create a Firebase project at https://console.firebase.google.com/
+> - Get the gcloud credential at https://console.cloud.google.com/iam-admin/serviceaccounts/project
+> - Access the page Database -> activate the Firestore database
 
 ## if option 2)
-> Choose a path to store your board (~/.leboard):
+> - Choose a path to store your board (~/.leboard):
 
 
 
@@ -37,21 +37,21 @@ leboard init
 ```
 import leboard
 
-leboard.task("MNIST")
+letask = leboard.TaskBoard("MNIST")
 
 # other members will have access to the MNIST task too
 # (restrict a members definition only when a task is set)
-leboard.members(["rob@gmail.com", "jane@mail.com"])
+letask.members(["rob@gmail.com", "jane@mail.com"])
 
 # do your stuff
 # ...
 
-experiment = leboard.Entry()
+experiment = letask.Entry()
 
-experiment.add("accuracy", accuracy)
-experiment.add("loss", loss)
-experiment.add("parameters", params, hide=True)
-experiment.add("confusion_image", confusion_image)
+experiment.set("accuracy", accuracy)
+experiment.set("loss", loss)
+experiment.set("parameters", params, hide=True)
+experiment.set("confusion_image", confusion_image)
 
 # commit will save to DataHandles available/configured
 # (proposed is local simple file storage, and shared google firebase)
@@ -67,11 +67,7 @@ this can open a page hosted in firebase.
 - keep experiment data in order of creation
 
 ```
-import leboard
-
-leboard.set_rank("accuracy", "ASC")
-
-leboard.leaderboard("MNIST")
+letask.leaderboard("MNIST", "accuracy")
 ```
 
 
@@ -84,15 +80,12 @@ handling resources like image, or HTML pages, to show and
 interact with them.
 
 ```
-import leboard
 from leboard import types as lbt
 
-experiment = leboard.Entry()
-
-experiment.add("accuracy", accuracy)
-experiment.add("loss", loss)
-experiment.add("confusion_image", lbt.Image(confusion_image))
-experiment.add("notebook_html", lbt.HTML(notebook_html))
+experiment.set("accuracy", accuracy)
+experiment.set("loss", loss)
+experiment.set("confusion_image", lbt.Image(confusion_image))
+experiment.set("notebook_html", lbt.HTML(notebook_html))
 ```
 
 Committing an `Entry` could automatically save a copy of
