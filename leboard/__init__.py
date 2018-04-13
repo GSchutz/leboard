@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-__version__ = pkg_resources.resource_stream(__name__, '../VERSION').read().decode('UTF-8')
+__version__ = pkg_resources.resource_stream(__name__, 'VERSION').read().decode('UTF-8')
 
 FIREBASE_CREDENTIALS = 'firebase.json'
 
