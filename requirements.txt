@@ -1,0 +1,5 @@
+docopt==0.6.2
+firebase-admin==2.9.1
+google-cloud-firestore==0.29.0
+numpy==1.14.2
+m2r==0.1.14
